@@ -23,6 +23,7 @@ function createProject {
 	perl -pi -e "s/%PROJECT%/$projectName/g" "$DIR/$domainName.conf"
 	mv "$DIR/$domainName.conf" "/etc/apache2/sites-available/"
 	ln -s "/etc/apache2/sites-available/$domainName.conf" "/etc/apache2/sites-enabled/"
+  /etc/init.d/apache2 reload
 
 
 	#SSH keys etc
