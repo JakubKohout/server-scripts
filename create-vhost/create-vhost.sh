@@ -10,6 +10,7 @@ function createProject {
 	local domainName="$2"
 	local homeDir="/home/$projectName"	
 
+  #Add user and create homedir
 	useradd "$projectName"
 	mkdir "$homeDir"
 	mkdir "/home/www/$projectName"
@@ -31,18 +32,17 @@ function createProject {
 	chown "$projectName:$projectName" "$homeDir/.ssh" -R
 }
 
-createProject "testing" "test.com"
+echo "Create VirtualHost"
+echo "What will be project name?"
+read projectName
+echo "What will be domain for this project?"
+read domainName
+echo "Project name will be $projectName and domain will be $domainName is it correct? [y]/n"
+read response
 
-#echo "Create VirtualHost"
-#echo "What will be project name?"
-#read projectName
-#echo "What will be domain for this project?"
-#read domainName
-#echo "Project name will be $projectName and domain will be $domainName is it correct? [y]/n"
-#read response
-#
-#if [ "$response" = "y" ]; then
-#	createProject $projectName $domainName;
-#else
-#   echo "Ok, run the script again :)"
-#fi
+if [ "$response" = "y" ]; then
+	createProject $projectName $domainName;
+  echo "If you didn't see any error its done"
+else
+   echo "Ok, run the script again :)"
+fi
