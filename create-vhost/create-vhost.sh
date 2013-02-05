@@ -27,7 +27,7 @@ function createProject {
 
 	#SSH keys etc
 	mkdir "$homeDir/.ssh"
-	cp "$DIR/$KNOWN_HOST" "$homeDir/.ssh/known_host"
+	cp "$DIR/$KNOWN_HOST" "$homeDir/.ssh/known_hosts"
 	cp "$DIR/$AUTHORIZED_KEYS" "$homeDir/.ssh/authorized_keys"
 	chown "$projectName:$projectName" "$homeDir/.ssh" -R
 }
