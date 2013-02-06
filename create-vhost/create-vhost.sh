@@ -12,7 +12,7 @@ function createProject {
 
   #Add user and create homedir
 	useradd "$projectName"
-	#mkdir "$homeDir"
+	mkdir "$homeDir"
 	mkdir "/home/www/$projectName"
   chown "$projectName:$projectName" "/home/www/$projectName" -R
 	ln -s "/home/www/$projectName" "/home/$projectName/www"
