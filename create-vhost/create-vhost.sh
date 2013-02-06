@@ -14,6 +14,7 @@ function createProject {
 	useradd "$projectName"
 	mkdir "$homeDir"
 	mkdir "/home/www/$projectName"
+  mkdir "/home/www/$projectName/$domainName"
   chown "$projectName:$projectName" "/home/www/$projectName" -R
 	ln -s "/home/www/$projectName" "/home/$projectName/www"
 	chown "$projectName:$projectName" "$homeDir" -R
