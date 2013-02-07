@@ -9,15 +9,26 @@ function createProject {
 	local projectName="$1"
 	local domainName="$2"
 	local homeDir="/home/$projectName"	
+  local domainDir="/home/www/$projectName/$domainName"
 
   #Add user and create homedir
 	useradd "$projectName"
 	mkdir "$homeDir"
 	mkdir "/home/www/$projectName"
-  mkdir "/home/www/$projectName/$domainName"
+  mkdir "$domainDir"
   chown "$projectName:$projectName" "/home/www/$projectName" -R
 	ln -s "/home/www/$projectName" "/home/$projectName/www"
 	chown "$projectName:$projectName" "$homeDir" -R
+
+  #Prepare folders for Webistrano and deployment
+  mkdir "$homeDir/temp"
+  mkdir "$domainDir/current"
+  mkdir "$domainDir/releases"
+  mkdir "$domainDir/shared"
+  ln -s "$homeDir/temp" "$domainDir/shared/temp"
+  mkdir "$domainDir/shared/log"
+  mkdir "$domainDir/shared/config"
+  chown "$projectName:$projectName" "$domainDir" -R
 
 	#Apache vhost
 	cp "$DIR/$APACHE_VHOST" "$DIR/$domainName.conf";
