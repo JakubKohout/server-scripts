@@ -22,7 +22,6 @@ function createProject {
 
   #Prepare folders for Webistrano and deployment
   mkdir "$homeDir/temp"
-  mkdir "$domainDir/current"
   mkdir "$domainDir/releases"
   mkdir "$domainDir/shared"
   ln -s "$homeDir/temp" "$domainDir/shared/temp"
