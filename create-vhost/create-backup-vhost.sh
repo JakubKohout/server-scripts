@@ -15,9 +15,9 @@ function createProject {
 	mkdir "$homeDir"
 	mkdir "/home/$projectName/www"
   
-  #Prepare folders for Webistrano and deployment
-  mkdir "$homeDir/temp"
-  
+  	#Prepare folders for Webistrano and deployment
+  	mkdir "$homeDir/temp"
+  	ln -s "/home/www/$projectName" "/home/$projectName/www"
 	chown "$projectName:$projectName" "$homeDir" -R
 
 
