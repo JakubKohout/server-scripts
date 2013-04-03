@@ -46,7 +46,7 @@ function createProject {
 }
 
 echo "Create VirtualHost"
-echo "What will be project name?"
+echo "What will be project name? It will be also same as username, so don't use spaces and special characters"
 read projectName
 echo "What will be domain for this project?"
 read domainName
