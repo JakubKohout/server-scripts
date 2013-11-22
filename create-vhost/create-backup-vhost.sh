@@ -13,8 +13,7 @@ function createProject {
   #Add user and create homedir
 	useradd "$projectName"
 	mkdir "$homeDir"
-	mkdir "/home/$projectName/www"
-  
+	
   	#Prepare folders for Webistrano and deployment
   	mkdir "$homeDir/temp"
   	ln -s "/home/www/$projectName" "/home/$projectName/www"
