@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 #This script will create vhost and set up all environment
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 NGINX_VHOST="nginx-vhost.default.conf"
